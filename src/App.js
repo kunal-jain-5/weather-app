@@ -7,7 +7,7 @@ function App() {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState("");
   const [temp, setTemp] = useState("-");
-  const [country, setCounrty] =useState("")
+  const [country, setCountry] =useState("")
   const [tempMin, setTempMin] = useState("-");
   const [tempMax, setTempMax] = useState("-");
   const submitHandle = (e) => {
@@ -16,7 +16,7 @@ function App() {
       .then((res) => {
       setWeather(res.data.weather.map((weather) => weather.description));
       setTemp(res.data.main.temp);
-      setCounrty(res.data.sys.country)
+      setCountry(res.data.sys.country)
       setCity(res.data.name)
       setTempMin(res.data.main.temp_min)
       setTempMax(res.data.main.temp_max)

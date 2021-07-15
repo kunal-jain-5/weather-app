@@ -19,14 +19,15 @@ function App() {
     <div className="App">
       <form onSubmit={submitHandle}>
         <input
+          className="input"
           value={city}
           onChange={(e) => setCity(e.target.value)}
           placeholder="enter city"
           type="text"
         />
       </form>
-      <div>description: {weather}</div>
-      <div>temp: {temp} °C</div>
+      <div className="temp">{temp} °C</div>
+      <div className="weather">{weather}</div>
     </div>
   );
 }

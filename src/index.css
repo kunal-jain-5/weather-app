@@ -1,0 +1,21 @@
+body{
+
+}
+form {
+    text-align: center;
+    margin-top: 100px;
+}
+input {
+    height: 40px;
+    width: 200px;
+    text-align: center;
+    border-radius: 20px 0;
+    font-size: 1.3rem;
+}
+.weather {
+    text-align: center;
+}
+.temp {
+    text-align: center;
+    font-size: 3rem;
+}

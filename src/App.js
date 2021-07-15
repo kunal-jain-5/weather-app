@@ -4,10 +4,10 @@ import { useState } from "react";
 function App() {
   const baseUrl = "https://api.openweathermap.org/data/2.5/weather?q=";
   const unitAndKey = "&units=metric&appid=06c13f2c71d0f89c96f1e4719921ebd4";
-  const [city, setCity] = useState("Raipur");
+  const [city, setCity] = useState("");
   const [weather, setWeather] = useState("");
   const [temp, setTemp] = useState("-");
-  const [country, setCounrty] =useState("IN")
+  const [country, setCounrty] =useState("")
   const [tempMin, setTempMin] = useState("-");
   const [tempMax, setTempMax] = useState("-");
   const submitHandle = (e) => {
@@ -33,7 +33,7 @@ function App() {
           type="text"
         />
       </form>
-      <div className="location">{city}, {country}</div>
+      <div className="location">{city} {country}</div>
       <div className="temp">{temp}°C</div>
       <div className="weather">{weather}</div>
       <div className="min-max">{tempMin}°C/{tempMax}°C </div>

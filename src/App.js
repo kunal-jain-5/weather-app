@@ -10,6 +10,7 @@ function App() {
   const [country, setCountry] =useState("")
   const [tempMin, setTempMin] = useState("-");
   const [tempMax, setTempMax] = useState("-");
+
   const submitHandle = (e) => {
     e.preventDefault();
     axios.get(baseUrl + city + unitAndKey)
@@ -22,6 +23,7 @@ function App() {
       setTempMax(res.data.main.temp_max)
     });
   };
+
   return (
     <div className="App">
       <form onSubmit={submitHandle}>

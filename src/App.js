@@ -14,14 +14,23 @@ function App() {
   const submitHandle = (e) => {
     e.preventDefault();
     axios.get(baseUrl + city + unitAndKey)
-      .then((res) => {
+      .then(res => {
       setWeather(res.data.weather.map((weather) => weather.description));
       setTemp(res.data.main.temp);
       setCountry(res.data.sys.country)
       setCity(res.data.name)
       setTempMin(res.data.main.temp_min)
       setTempMax(res.data.main.temp_max)
-    });
+    })
+    .catch(err => {
+      console.log(err)
+      setCity("Not Found")
+      setTemp("-")
+      setWeather("-")
+      setTempMax("-")
+      setTempMin("-")
+      setCountry(" ")
+    })
   };
 
   return (

@@ -7,30 +7,30 @@ function App() {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState("");
   const [temp, setTemp] = useState("-");
-  const [country, setCountry] =useState("")
+  const [country, setCountry] = useState("");
   const [tempMin, setTempMin] = useState("-");
   const [tempMax, setTempMax] = useState("-");
 
   const submitHandle = (e) => {
     e.preventDefault();
-    axios.get(baseUrl + city + unitAndKey)
-      .then(res => {
-      setWeather(res.data.weather.map((weather) => weather.description));
-      setTemp(res.data.main.temp);
-      setCountry(res.data.sys.country)
-      setCity(res.data.name)
-      setTempMin(res.data.main.temp_min)
-      setTempMax(res.data.main.temp_max)
-    })
-    .catch(err => {
-      console.log(err)
-      setCity("Not Found")
-      setTemp("-")
-      setWeather("-")
-      setTempMax("-")
-      setTempMin("-")
-      setCountry(" ")
-    })
+    axios
+      .get(baseUrl + city + unitAndKey)
+      .then((res) => {
+        setWeather(res.data.weather.map((weather) => weather.description));
+        setTemp(res.data.main.temp);
+        setCountry(res.data.sys.country);
+        setCity(res.data.name);
+        setTempMin(res.data.main.temp_min);
+        setTempMax(res.data.main.temp_max);
+      })
+      .catch((err) => {
+        setCity("Not Found");
+        setTemp("-");
+        setWeather("-");
+        setTempMax("-");
+        setTempMin("-");
+        setCountry(" ");
+      });
   };
 
   return (
@@ -44,10 +44,14 @@ function App() {
           type="text"
         />
       </form>
-      <div className="location">{city} {country}</div>
+      <div className="location">
+        {city} {country}
+      </div>
       <div className="temp">{temp}°C</div>
       <div className="weather">{weather}</div>
-      <div className="min-max">{tempMin}°C/{tempMax}°C </div>
+      <div className="min-max">
+        {tempMin}°C/{tempMax}°C{" "}
+      </div>
     </div>
   );
 }

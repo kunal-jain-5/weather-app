@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 
+
 function App() {
   const baseUrl = "https://api.openweathermap.org/data/2.5/weather?q=";
   const unitAndKey = "&units=metric&appid=06c13f2c71d0f89c96f1e4719921ebd4";
@@ -30,6 +31,7 @@ function App() {
         setTempMax("-");
         setTempMin("-");
         setCountry(" ");
+        setTimeout(function(){ window.location="index"; },500);
       });
   };
 

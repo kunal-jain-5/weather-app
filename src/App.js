@@ -31,7 +31,7 @@ function App() {
         setTempMax("-");
         setTempMin("-");
         setCountry(" ");
-        setTimeout(function(){ window.location="index"; },500);
+        setTimeout(function(){ window.location="/"; },500);
       });
   };
 

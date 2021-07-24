@@ -42,7 +42,7 @@ function App() {
           className="input"
           value={city}
           onChange={(e) => setCity(e.target.value)}
-          placeholder="enter city"
+          placeholder="Enter City"
           type="text"
         />
       </form>

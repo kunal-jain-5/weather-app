@@ -7,10 +7,10 @@ function App() {
   const unitAndKey = "&units=metric&appid=06c13f2c71d0f89c96f1e4719921ebd4";
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState("");
-  const [temp, setTemp] = useState("-");
+  const [temp, setTemp] = useState("");
   const [country, setCountry] = useState("");
-  const [tempMin, setTempMin] = useState("-");
-  const [tempMax, setTempMax] = useState("-");
+  const [tempMin, setTempMin] = useState("");
+  const [tempMax, setTempMax] = useState("");
 
   const submitHandle = (e) => {
     e.preventDefault();
@@ -18,19 +18,19 @@ function App() {
       .get(baseUrl + city + unitAndKey)
       .then((res) => {
         setWeather(res.data.weather.map((weather) => weather.description));
-        setTemp(res.data.main.temp);
+        setTemp(res.data.main.temp + "°C");
         setCountry(res.data.sys.country);
         setCity(res.data.name);
-        setTempMin(res.data.main.temp_min);
-        setTempMax(res.data.main.temp_max);
+        setTempMin(res.data.main.temp_min + "°C/");
+        setTempMax(res.data.main.temp_max + "°C");
       })
       .catch((err) => {
         setCity("Not Found");
-        setTemp("-");
-        setWeather("-");
-        setTempMax("-");
-        setTempMin("-");
-        setCountry(" ");
+        setTemp("");
+        setWeather("");
+        setTempMax("");
+        setTempMin("");
+        setCountry("");
         setTimeout(function(){ window.location="/"; },500);
       });
   };
@@ -49,10 +49,10 @@ function App() {
       <div className="location">
         {city} {country}
       </div>
-      <div className="temp">{temp}°C</div>
+      <div className="temp">{temp}</div>
       <div className="weather">{weather}</div>
       <div className="min-max">
-        {tempMin}°C/{tempMax}°C{" "}
+        {tempMin}{tempMax}{" "}
       </div>
     </div>
   );
